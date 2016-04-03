@@ -63,7 +63,7 @@ const DefaultDecorators = [
         var self = this;
         var indexes = this.getIndexes(self.props.slideCount, self.props.slidesToScroll);
         return (
-          <ul style={self.getListStyles()}>
+          <ul style={self.getListStyles()} className="circles">
             {
               indexes.map(function(index) {
                 return (
