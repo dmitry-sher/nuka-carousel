@@ -317,7 +317,17 @@ const Carousel = React.createClass({
     if (typeof (this.touchObject.length) !== 'undefined' && this.touchObject.length > 44) {
       this.clickSafe = true;
     } else {
-      this.clickSafe = false;
+      if (this.props.onClick) {
+        this.props.onClick(e, this.state.currentSlide);
+        this.touchObject = {};
+        this.goToSlide(this.state.currentSlide);
+        this.setState({
+          dragging: false
+        });
+        return;
+      }
+      else
+        this.clickSafe = false;
     }
 
     if (this.touchObject.length > (this.state.slideWidth / this.props.slidesToShow) / 5) {
