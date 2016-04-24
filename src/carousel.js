@@ -268,8 +268,9 @@ const Carousel = React.createClass({
           e.preventDefault();
         }
 
-        var length = self.props.vertical ? Math.round(Math.sqrt(Math.pow(e.clientY - self.touchObject.startY, 2)))
-                                         : Math.round(Math.sqrt(Math.pow(e.clientX - self.touchObject.startX, 2)))
+        var length = Math.round(Math.sqrt(Math.pow(e.clientY - self.touchObject.startY, 2) + Math.pow(e.clientX - self.touchObject.startX, 2)));
+        // var length = self.props.vertical ? Math.round(Math.sqrt(Math.pow(e.clientY - self.touchObject.startY, 2)))
+        //                                  : Math.round(Math.sqrt(Math.pow(e.clientX - self.touchObject.startX, 2)))
 
         self.touchObject = {
           startX: self.touchObject.startX,
